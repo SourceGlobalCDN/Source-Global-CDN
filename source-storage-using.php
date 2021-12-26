@@ -96,14 +96,14 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
                     add_settings_section(
                         'wpsource_section_main',
-                        'Manage',
+                        '管理',
                         '',
                         'wpsource'
                     );
 
                     add_settings_field(
                         'wpsource_field_select_source_admin',
-                        'Core acceleration',
+                        'WordPress核心加速',
                         [$this, 'field_source_admin_cb'],
                         'wpsource',
                         'wpsource_section_main'
@@ -111,7 +111,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
                     add_settings_field(
                         'wpsource_field_select_sdn_gravatar',
-                        'Gravatar acceleration',
+                        'Gravatar头像加速',
                         [$this, 'field_sdn_gravatar_cb'],
                         'wpsource',
                         'wpsource_section_main'
@@ -152,12 +152,12 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
         public function field_source_admin_cb()
         {
-            $this->field_cb('source_admin', 'Switch the static files that the WordPress core depends on to the resources of <code>source.ahdark.com</code>, which greatly speeds up the access speed.');
+            $this->field_cb('source_admin', '将WordPress静态文件使用 <code>source.ahdark.com</code>分发, 这将大大加快您WordPress的速度');
         }
 
         public function field_sdn_gravatar_cb()
         {
-            $this->field_cb('sdn_gravatar', 'Use <code>sdn.ahdark.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland.');
+            $this->field_cb('sdn_gravatar', '使用 <code>sdn.ahdark.com</code> 确保您的Gravatar头像在中国大陆正常访问，并加快您Gravatar头像的速度');
         }
 
         public function options_page_html()
@@ -166,7 +166,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                 update_option("source_admin", sanitize_text_field($_POST['source_admin']));
                 update_option("sdn_gravatar", sanitize_text_field($_POST['sdn_gravatar']));
 
-                echo '<div class="notice notice-success settings-error is-dismissible"><p><strong>Saved.</strong></p></div>';
+                echo '<div class="notice notice-success settings-error is-dismissible"><p><strong>已保存</strong></p></div>';
             }
 
             if (!current_user_can('manage_options')) {
@@ -181,12 +181,12 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                     <?php
                     settings_fields('wpsource');
                     do_settings_sections('wpsource');
-                    submit_button('Save');
+                    submit_button('保存');
                     ?>
                 </form>
             </div>
             <p>
-                For detailed updates and project information and introduction, please go to <a href="https://ahdark.com/source" target="_blank" rel="noopener">ahdark.com/source/</a>.
+                关于此项目更多内容，请去 <a href="https://ahdark.com/source" target="_blank" rel="noopener">ahdark.com/source/</a>. 此插件由AHdark制作，由<a href="https://xcao.top" target="_blank" rel="noopener">小草</a>汉化
             </p>
             <?php
         }
@@ -197,11 +197,11 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
             ?>
             <label>
                 <input type="radio" value="1"
-                       name="<?php echo $option_name; ?>" <?php checked($option_value, '1'); ?>>Enable
+                       name="<?php echo $option_name; ?>" <?php checked($option_value, '1'); ?>>启用
             </label>
             <label>
                 <input type="radio" value="2"
-                       name="<?php echo $option_name; ?>" <?php checked($option_value, '2'); ?>>Disable
+                       name="<?php echo $option_name; ?>" <?php checked($option_value, '2'); ?>>禁用
             </label>
             <p class="description">
                 <?php echo $description; ?>

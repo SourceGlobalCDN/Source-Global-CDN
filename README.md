@@ -1,3 +1,5 @@
-# Source Storage Using
+# Source Global CDN Using
 
-A WordPress Plugin for users to let them use source storage to accelerate WordPress Core and Gravatar quickly and easily.
+The service automatically changes references to WordPress core static files to static file references to Source Global CDN, fetching static files from our service can help reduce site load and increase loading speed.
+
+About _Source Global CDN_, you can visit <https://www.sourcegcdn.com> for more information.

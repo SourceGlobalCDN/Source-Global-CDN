@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Source Storage Using
- * Description: 使用AHdark提供的Source Storage静态加速服务和SDN境外资源加速服务
+ * Plugin Name: Source Global CDN
+ * Description: 自动将WordPress核心内静态文件转移使用Source Global CDN进行托管，减轻站点静态文件加载负担。
  * Author: AHdark
  * Author URI:https://ahdark.com
  * Version: 1.0.0
@@ -19,7 +19,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
         public function __construct()
         {
-            $this->page_url = network_admin_url(is_multisite() ? 'settings.php?page=source-storage-using' : 'options-general.php?page=source-storage-using');
+            $this->page_url = network_admin_url(is_multisite() ? 'settings.php?page=source-global-cdn' : 'options-general.php?page=source-global-cdn');
         }
 
         public function init()
@@ -38,7 +38,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                 /**
                  * 初始化设置项
                  */
-                update_option("source_admin", get_option('source_admin') ?: '2');
+                update_option("source_admin", get_option('source_admin') ?: '1');
                 update_option("sdn_gravatar", get_option('sdn_gravatar') ?: '1');
 
 
@@ -57,10 +57,10 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                 add_action(is_multisite() ? 'network_admin_menu' : 'admin_menu', function () {
                     add_submenu_page(
                         is_multisite() ? 'settings.php' : 'options-general.php',
-                        'Source Storage Using',
-                        'Source Storage',
+                        'Source Global CDN',
+                        'Source Global CDN',
                         is_multisite() ? 'manage_network_options' : 'manage_options',
-                        'source-storage-using',
+                        'source-global-cdn',
                         [$this, 'options_page_html']
                     );
                 });
@@ -162,7 +162,12 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
         public function options_page_html()
         {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!current_user_can('activate_plugins'))
+                wp_die(__("Insufficient privilege for the required operation"));
+
+            $nonce = $_POST['_wpnonce'] ?? '';
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && check_admin_referer('wpsource_update', 'key') !== false && current_user_can('manage_options')) {
                 update_option("source_admin", sanitize_text_field($_POST['source_admin']));
                 update_option("sdn_gravatar", sanitize_text_field($_POST['sdn_gravatar']));
 
@@ -177,8 +182,9 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
             ?>
             <div class="wrap">
                 <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-                <form action="<?php echo $this->page_url; ?>" method="post">
+                <form action="<?php echo esc_attr($this->page_url); ?>" method="post">
                     <?php
+                    wp_nonce_field('wpsource_update', "key");
                     settings_fields('wpsource');
                     do_settings_sections('wpsource');
                     submit_button('Save');
@@ -186,7 +192,8 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                 </form>
             </div>
             <p>
-                For detailed updates and project information and introduction, please go to <a href="https://ahdark.com/source" target="_blank" rel="noopener">ahdark.com/source/</a>.
+                For detailed updates and project information and introduction, please go to
+                <a href="https://ahdark.com/source" target="_blank" rel="noopener">ahdark.com/source/</a>.
             </p>
             <?php
         }
@@ -197,14 +204,14 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
             ?>
             <label>
                 <input type="radio" value="1"
-                       name="<?php echo $option_name; ?>" <?php checked($option_value, '1'); ?>>Enable
+                       name="<?php echo esc_attr($option_name); ?>" <?php checked($option_value, '1'); ?>>Enable
             </label>
             <label>
                 <input type="radio" value="2"
-                       name="<?php echo $option_name; ?>" <?php checked($option_value, '2'); ?>>Disable
+                       name="<?php echo esc_attr($option_name); ?>" <?php checked($option_value, '2'); ?>>Disable
             </label>
             <p class="description">
-                <?php echo $description; ?>
+                <?php echo esc_attr($description); ?>
             </p>
             <?php
         }
@@ -216,9 +223,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
          */
         private function page_str_replace(string $replace_func, array $param, int $level)
         {
-            if ($level == 3 && is_admin()) {
-                return;
-            } else if ($level == 4 && !is_admin()) {
+            if ($level == 2) {
                 return;
             }
 

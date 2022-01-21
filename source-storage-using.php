@@ -4,7 +4,7 @@
  * Description: 自动将WordPress核心内静态文件转移使用Source Global CDN进行托管，减轻站点静态文件加载负担。
  * Author: AHdark
  * Author URI:https://ahdark.com
- * Version: 1.0.0
+ * Version: 1.0.1
  * Network: True
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html

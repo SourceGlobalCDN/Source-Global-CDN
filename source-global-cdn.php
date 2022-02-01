@@ -30,7 +30,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
                  */
                 add_filter(sprintf('%splugin_action_links_%s', is_multisite() ? 'network_admin_' : '', plugin_basename(__FILE__)), function ($links) {
                     return array_merge(
-                        [sprintf('<a href="%s">%s</a>', $this->page_url, '设置')],
+                        ['<a href="' . $this->page_url . '">' . '设置' . '</a>'],
                         $links
                     );
                 });
@@ -78,7 +78,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
             ) {
                 $this->page_str_replace('preg_replace', [
                     '~' . home_url('/') . '(wp-admin|wp-includes)/(css|js)/~',
-                    sprintf('https://source.ahdark.com/wordpress/%s/$1/$2/', $GLOBALS['wp_version'])
+                    'https://wp.sourcegcdn.com/core/' . $GLOBALS['wp_version'] . '/$1/$2/'
                 ], get_option('source_admin'));
             }
 
@@ -152,7 +152,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
 
         public function field_source_admin_cb()
         {
-            $this->field_cb('source_admin', 'Switch the static files that the WordPress core depends on to the resources of <code>source.ahdark.com</code>, which greatly speeds up the access speed.');
+            $this->field_cb('source_admin', 'Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed.');
         }
 
         public function field_sdn_gravatar_cb()
@@ -193,7 +193,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
             </div>
             <p>
                 For detailed updates and project information and introduction, please go to
-                <a href="https://ahdark.com/source" target="_blank" rel="noopener">ahdark.com/source/</a>.
+                <a href="https://www.sourcegcdn.com" target="_blank" rel="noopener">www.sourcegcdn.com</a>.
             </p>
             <?php
         }
@@ -219,7 +219,7 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
         /**
          * @param $replace_func string 要调用的字符串关键字替换函数
          * @param $param array 传递给字符串替换函数的参数
-         * @param $level int 替换级别：1.全局替换 3.前台替换 4.后台替换
+         * @param $level int 替换级别
          */
         private function page_str_replace(string $replace_func, array $param, int $level)
         {

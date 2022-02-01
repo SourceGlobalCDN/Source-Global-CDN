@@ -1,7 +1,8 @@
 <?php
 /**
  * Plugin Name: Source Global CDN
- * Description: 自动将WordPress核心内静态文件转移使用Source Global CDN进行托管，减轻站点静态文件加载负担。
+ * Plugin URI: https://www.sourcegcdn.com/public/wordpress/56.html
+ * Description: Automatically transfer the static files in the WordPress core and use Source Global CDN for hosting, reducing the load of static files on the site.
  * Author: Source Global CDN
  * Author URI: https://www.sourcegcdn.com
  * Version: 1.0.2
@@ -45,7 +46,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                  */
                 add_filter(sprintf('%splugin_action_links_%s', is_multisite() ? 'network_admin_' : '', plugin_basename(__FILE__)), function ($links) {
                     return array_merge(
-                        ['<a href="' . $this->page_url . '">' . '设置' . '</a>'],
+                        ['<a href="' . $this->page_url . '">' . __("Setting") . '</a>'],
                         $links
                     );
                 });
@@ -72,8 +73,8 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                 add_action(is_multisite() ? 'network_admin_menu' : 'admin_menu', function () {
                     add_submenu_page(
                         is_multisite() ? 'settings.php' : 'options-general.php',
-                        'Source Global CDN',
-                        'Source Global CDN',
+                        __("Source Global CDN", "source-global-cdn"),
+                        __("Source Global CDN Settings", "source-global-cdn"),
                         is_multisite() ? 'manage_network_options' : 'manage_options',
                         'source-global-cdn',
                         [$this, 'options_page_html']
@@ -111,14 +112,14 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
 
                     add_settings_section(
                         'wpsource_section_main',
-                        'Manage',
+                        __("Manage", "source-global-cdn"),
                         '',
                         'wpsource'
                     );
 
                     add_settings_field(
                         'wpsource_field_select_source_admin',
-                        'Core acceleration',
+                        __("Core acceleration", "source-global-cdn"),
                         [$this, 'field_source_admin_cb'],
                         'wpsource',
                         'wpsource_section_main'
@@ -126,7 +127,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
 
                     add_settings_field(
                         'wpsource_field_select_sdn_gravatar',
-                        'Gravatar acceleration',
+                        __("Gravatar acceleration", "source-global-cdn"),
                         [$this, 'field_sdn_gravatar_cb'],
                         'wpsource',
                         'wpsource_section_main'
@@ -167,12 +168,12 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
 
         public function field_source_admin_cb()
         {
-            $this->field_cb('source_admin', 'Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed.');
+            $this->field_cb('source_admin', __("Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed.", "source-global-cdn"));
         }
 
         public function field_sdn_gravatar_cb()
         {
-            $this->field_cb('sdn_gravatar', 'Use <code>sdn.ahdark.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland.');
+            $this->field_cb('sdn_gravatar', __("Use <code>sdn.ahdark.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland.", "source-global-cdn"));
         }
 
         public function options_page_html()
@@ -180,13 +181,11 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
             if (!current_user_can('activate_plugins'))
                 wp_die(__("Insufficient privilege for the required operation"));
 
-            $nonce = $_POST['_wpnonce'] ?? '';
-
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && check_admin_referer('wpsource_update', 'key') !== false && current_user_can('manage_options')) {
                 update_option("source_admin", sanitize_text_field($_POST['source_admin']));
                 update_option("sdn_gravatar", sanitize_text_field($_POST['sdn_gravatar']));
 
-                echo '<div class="notice notice-success settings-error is-dismissible"><p><strong>Saved.</strong></p></div>';
+                echo '<div class="notice notice-success settings-error is-dismissible"><p><strong>' . __("Saved.", "source-global-cdn") . '</strong></p></div>';
             }
 
             if (!current_user_can('manage_options')) {
@@ -207,8 +206,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                 </form>
             </div>
             <p>
-                For detailed updates and project information and introduction, please go to
-                <a href="https://www.sourcegcdn.com" target="_blank" rel="noopener">www.sourcegcdn.com</a>.
+                <?php _e("For detailed updates and project information and introduction, please go to <a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener\">www.sourcegcdn.com</a>.", "source-global-cdn"); ?>
             </p>
             <?php
         }

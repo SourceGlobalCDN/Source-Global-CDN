@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Source Global CDN
  * Description: 自动将WordPress核心内静态文件转移使用Source Global CDN进行托管，减轻站点静态文件加载负担。
- * Author: AHdark
- * Author URI:https://ahdark.com
+ * Author: Source Global CDN
+ * Author URI: https://www.sourcegcdn.com
  * Version: 1.0.2
  * Network: True
  * License: GPLv3 or later

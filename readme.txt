@@ -31,6 +31,11 @@ You can go to <https://www.sourcegcdn.com/public/wordpress/56.html> for more det
 
 == Changelog ==
 
-= 1.0 =
+= 2.0.0 =
+* Internationalization
+* Added Chinese language pack
+* Transfer Endpoint to `wp.sourcegcdn.com/core/`
+
+= 1.0.0 =
 * 加入了加速Gravatar的功能
 * 加入了加载`wp-admin`和`wp-includes`目录下静态文件的功能

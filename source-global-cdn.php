@@ -8,12 +8,27 @@
  * Network: True
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: source-global-cdn
+ * Domain Path: /languages
+ *
+ * {Plugin Name} is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * any later version.
+ *
+ * {Plugin Name} is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with {Plugin Name}. If not, see {License URI}.
  */
 
 defined('ABSPATH') || exit;
 
-if (!class_exists('SOURCE_STORAGE_USING')) {
-    class SOURCE_STORAGE_USING
+if (!class_exists('SOURCE_GLOBAL_CDN')) {
+    class SOURCE_GLOBAL_CDN
     {
         private $page_url;
 
@@ -237,5 +252,5 @@ if (!class_exists('SOURCE_STORAGE_USING')) {
         }
     }
 
-    (new SOURCE_STORAGE_USING())->init();
+    (new SOURCE_GLOBAL_CDN())->init();
 }

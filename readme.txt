@@ -2,8 +2,8 @@
 Contributors: ahdark
 Donate link: https://ahdark.com/donate
 Tags: cdn, accelerate, 加速, 静态文件
-Requires at least: 4.8
-Tested up to: 5.8.3
+Requires at least: 5.6
+Tested up to: 5.9
 Stable tag: 1.0.2
 Requires PHP: 7.0
 License: GPLv3 or later

@@ -9,14 +9,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-02-01T18:55:42+08:00\n"
+"POT-Creation-Date: 2022-02-01T12:29:29+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: source-global-cdn\n"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: source-global-cdn.php:76
+#: source-global-cdn.php:80
+#: source-global-cdn.php:81
 msgid "Source Global CDN"
 msgstr ""
 
@@ -32,34 +33,30 @@ msgstr ""
 msgid "https://www.sourcegcdn.com"
 msgstr ""
 
-#: source-global-cdn.php:77
-msgid "Source Global CDN Settings"
-msgstr ""
-
-#: source-global-cdn.php:115
+#: source-global-cdn.php:119
 msgid "Manage"
 msgstr ""
 
-#: source-global-cdn.php:122
+#: source-global-cdn.php:126
 msgid "Core acceleration"
 msgstr ""
 
-#: source-global-cdn.php:130
+#: source-global-cdn.php:134
 msgid "Gravatar acceleration"
 msgstr ""
 
-#: source-global-cdn.php:171
+#: source-global-cdn.php:175
 msgid "Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed."
 msgstr ""
 
-#: source-global-cdn.php:176
+#: source-global-cdn.php:180
 msgid "Use <code>sdn.ahdark.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland."
 msgstr ""
 
-#: source-global-cdn.php:188
+#: source-global-cdn.php:192
 msgid "Saved."
 msgstr ""
 
-#: source-global-cdn.php:209
+#: source-global-cdn.php:213
 msgid "For detailed updates and project information and introduction, please go to <a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener\">www.sourcegcdn.com</a>."
 msgstr ""

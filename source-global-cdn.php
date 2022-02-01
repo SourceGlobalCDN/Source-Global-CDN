@@ -28,6 +28,10 @@
 
 defined('ABSPATH') || exit;
 
+add_action("init", function () {
+    load_plugin_textdomain('source-global-cdn', false, dirname(plugin_basename(__FILE__)) . '/languages');
+});
+
 if (!class_exists('SOURCE_GLOBAL_CDN')) {
     class SOURCE_GLOBAL_CDN
     {
@@ -74,7 +78,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                     add_submenu_page(
                         is_multisite() ? 'settings.php' : 'options-general.php',
                         __("Source Global CDN", "source-global-cdn"),
-                        __("Source Global CDN Settings", "source-global-cdn"),
+                        __("Source Global CDN", "source-global-cdn"),
                         is_multisite() ? 'manage_network_options' : 'manage_options',
                         'source-global-cdn',
                         [$this, 'options_page_html']

@@ -36,7 +36,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
     class SOURCE_GLOBAL_CDN
     {
         private $page_url;
-        public $version = "2.0.0";
+        public $version = "2.0.1";
 
         public function __construct()
         {
@@ -145,7 +145,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                 /**
                  * 替换使用sdn.ahdark.com镜像源
                  */
-                function get_avatar_from_sdn($avatar)
+                function get_avatar_from_mirror($avatar)
                 {
                     return str_replace(
                         [
@@ -159,26 +159,26 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                             "sdn.geekzu.com",
                             "cravatar.cn"
                         ],
-                        'sdn.ahdark.com',
+                        'avatar.sourcegcdn.com',
                         $avatar
                     );
                 }
 
-                add_filter('get_avatar', 'get_avatar_from_sdn');
-                add_filter('um_user_avatar_url_filter', 'get_avatar_from_sdn', 1);
-                add_filter('bp_gravatar_url', 'get_avatar_from_sdn', 1);
-                add_filter('get_avatar_url', 'get_avatar_from_sdn', 1);
+                add_filter('get_avatar', 'get_avatar_from_mirror');
+                add_filter('um_user_avatar_url_filter', 'get_avatar_from_mirror', 1);
+                add_filter('bp_gravatar_url', 'get_avatar_from_mirror', 1);
+                add_filter('get_avatar_url', 'get_avatar_from_mirror', 1);
             }
         }
 
         public function field_source_admin_cb()
         {
-            $this->field_cb('source_admin', __("Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed.", "source-global-cdn"));
+            $this->field_cb('source_admin', __("Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed. <br/>For details, please refer to <a href='https://www.sourcegcdn.com/public/wordpress/56.html' rel='noopener'>https://www.sourcegcdn.com/public/wordpress/56.html</a>.", "source-global-cdn"));
         }
 
         public function field_sdn_gravatar_cb()
         {
-            $this->field_cb('sdn_gravatar', __("Use <code>sdn.ahdark.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland.", "source-global-cdn"));
+            $this->field_cb('sdn_gravatar', __("Use <code>avatar.sourcegcdn.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland. <br/>For details, please refer to <a href='https://www.sourcegcdn.com/public/92.html' rel='noopener'>https://www.sourcegcdn.com/public/92.html</a>.", "source-global-cdn"));
         }
 
         public function options_page_html()
@@ -211,7 +211,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                 </form>
             </div>
             <p>
-                <?php _e("For detailed updates and project information and introduction, please go to <a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener\">www.sourcegcdn.com</a>.", "source-global-cdn"); ?>
+                <?php _e('For detailed updates and project information and introduction, please go to <a href="https://www.sourcegcdn.com" target="_blank" rel="noopener">www.sourcegcdn.com</a>.', "source-global-cdn"); ?>
             </p>
             <?php
         }
@@ -222,14 +222,14 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
             ?>
             <label>
                 <input type="radio" value="1"
-                       name="<?php echo esc_attr($option_name); ?>" <?php checked($option_value, '1'); ?>>Enable
+                       name="<?php esc_attr_e($option_name); ?>" <?php checked($option_value, '1'); ?>>Enable
             </label>
             <label>
                 <input type="radio" value="2"
-                       name="<?php echo esc_attr($option_name); ?>" <?php checked($option_value, '2'); ?>>Disable
+                       name="<?php esc_attr_e($option_name); ?>" <?php checked($option_value, '2'); ?>>Disable
             </label>
             <p class="description">
-                <?php echo esc_attr($description); ?>
+                <?php echo $description; ?>
             </p>
             <?php
         }

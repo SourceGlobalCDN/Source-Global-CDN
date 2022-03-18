@@ -76,14 +76,56 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                  * 菜单注册
                  */
                 add_action(is_multisite() ? 'network_admin_menu' : 'admin_menu', function () {
-                    add_submenu_page(
-                        is_multisite() ? 'settings.php' : 'options-general.php',
+                    add_menu_page(
                         __("Source Global CDN", "source-global-cdn"),
-                        __("Source Global CDN", "source-global-cdn"),
+                        __("Source GCDN", "source-global-cdn"),
                         is_multisite() ? 'manage_network_options' : 'manage_options',
-                        'source-global-cdn',
-                        [$this, 'options_page_html']
+                        'sourcegcdn',
+                        [$this, 'options_page_html'],
+                        plugin_dir_url(__FILE__) . 'assets/images/menu-icon.png'
                     );
+//                    add_submenu_page(
+//                        'sourcegcdn',
+//                        __("Source Global CDN Options", "source-global-cdn"),
+//                        __("Options", "source-global-cdn"),
+//                        is_multisite() ? 'manage_network_options' : 'manage_options',
+//                        'sourcegcdn-options',
+//                        [$this, 'options_page_html'],
+//                        5
+//                    );
+                    add_submenu_page(
+                        'sourcegcdn',
+                        __("About Source Global CDN", "source-global-cdn"),
+                        __("About", "source-global-cdn"),
+                        is_multisite() ? 'manage_network_options' : 'manage_options',
+                        'sourcegcdn-about',
+                        [$this, 'about_page_html'],
+                        10
+                    );
+                });
+            }
+
+            if (get_option('sdn_gravatar') == 1 || get_option('source_admin') != 2) { // 启用插件
+                add_action('wp_head', function () {
+                    echo '<!-- ' . __("This site is accelerated by Source Global CDN, please go to https://www.sourcegcdn.com for project details.", "source-global-cdn") . ' -->';
+                    if (get_option('sdn_gravatar') == 1) {
+                        echo '<link rel="preconnect" href="//avatar.sourcegcdn.com"/>';
+                    }
+                    if (get_option('source_admin') != 2) {
+                        echo '<link rel="preconnect" href="//wp.sourcegcdn.com"/>';
+                    }
+                }, 1);
+                add_action('admin_head', function () {
+                    echo '<!-- ' . __("This site is accelerated by Source Global CDN, please go to https://www.sourcegcdn.com for project details.", "source-global-cdn") . ' -->';
+                    if (get_option('sdn_gravatar') == 1) {
+                        echo '<link rel="preconnect" href="//avatar.sourcegcdn.com"/>';
+                    }
+                    if (get_option('source_admin') != 2) {
+                        echo '<link rel="preconnect" href="//wp.sourcegcdn.com"/>';
+                    }
+                }, 1);
+                add_action('wp_footer', function () {
+                    echo '<script>console.log("' . __("This site is accelerated by Source Global CDN, please go to https://www.sourcegcdn.com for project details.", "source-global-cdn") . '");</script>';
                 });
             }
 
@@ -213,6 +255,35 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
             <p>
                 <?php _e('For detailed updates and project information and introduction, please go to <a href="https://www.sourcegcdn.com" target="_blank" rel="noopener">www.sourcegcdn.com</a>.', "source-global-cdn"); ?>
             </p>
+            <?php
+        }
+
+        public function about_page_html()
+        {
+            if (!current_user_can('activate_plugins'))
+                wp_die(__("Insufficient privilege for the required operation"));
+
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            settings_errors('wpsource_messages');
+            ?>
+            <div class="wrap">
+                <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
+                <h2><?php _e("Introduction", "source-global-cdn"); ?></h2>
+                <p>
+                    <?php _e("The plugin will automatically change the references to WordPress static files to Source Global CDN, which will speed up static file loading and reduce site load.", "source-global-cdn"); ?>
+                </p>
+                <h2><?php _e("About the Project", "source-global-cdn"); ?></h2>
+                <p>
+                    <?php _e("Source Global CDN is a public welfare project initiated by AHdark, which aims to promote the development of open source and provide free static file acceleration services for the whole world.", "source-global-cdn"); ?>
+                    <br/>
+                    <?php _e("<a href='https://www.sourcegcdn.com' rel='noopener'>https://www.sourcegcdn.com</a> is the official website of the Source Global CDN project, the update information and maintenance of this project Information will be released on this site, and more functions and services under this project will also be published.", "source-global-cdn"); ?>
+                    <br/>
+                    <?php _e("This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global- CDN</a>", "source-global-cdn"); ?>
+                </p>
+            </div>
             <?php
         }
 

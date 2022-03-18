@@ -2,22 +2,21 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Source Global CDN 2.0.0\n"
+"Project-Id-Version: Source Global CDN 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/source-global-cdn\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-17T15:36:43+01:00\n"
+"POT-Creation-Date: 2022-03-18T13:50:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: source-global-cdn\n"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: source-global-cdn.php:81
-#: source-global-cdn.php:82
+#: source-global-cdn.php:80
 msgid "Source Global CDN"
 msgstr ""
 
@@ -33,30 +32,72 @@ msgstr ""
 msgid "https://www.sourcegcdn.com"
 msgstr ""
 
-#: source-global-cdn.php:120
+#: source-global-cdn.php:81
+msgid "Source GCDN"
+msgstr ""
+
+#: source-global-cdn.php:98
+msgid "About Source Global CDN"
+msgstr ""
+
+#: source-global-cdn.php:99
+msgid "About"
+msgstr ""
+
+#: source-global-cdn.php:110
+#: source-global-cdn.php:119
+#: source-global-cdn.php:128
+msgid "This site is accelerated by Source Global CDN, please go to https://www.sourcegcdn.com for project details."
+msgstr ""
+
+#: source-global-cdn.php:162
 msgid "Manage"
 msgstr ""
 
-#: source-global-cdn.php:127
+#: source-global-cdn.php:169
 msgid "Core acceleration"
 msgstr ""
 
-#: source-global-cdn.php:135
+#: source-global-cdn.php:177
 msgid "Gravatar acceleration"
 msgstr ""
 
-#: source-global-cdn.php:176
+#: source-global-cdn.php:218
 msgid "Switch the static files that the WordPress core depends on to the resources of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access speed. <br/>For details, please refer to <a href='https://www.sourcegcdn.com/public/wordpress/56.html' rel='noopener'>https://www.sourcegcdn.com/public/wordpress/56.html</a>."
 msgstr ""
 
-#: source-global-cdn.php:181
+#: source-global-cdn.php:223
 msgid "Use <code>avatar.sourcegcdn.com</code> to speed up your Gravatar while ensuring normal access to the China Mainland. <br/>For details, please refer to <a href='https://www.sourcegcdn.com/public/92.html' rel='noopener'>https://www.sourcegcdn.com/public/92.html</a>."
 msgstr ""
 
-#: source-global-cdn.php:193
+#: source-global-cdn.php:235
 msgid "Saved."
 msgstr ""
 
-#: source-global-cdn.php:214
+#: source-global-cdn.php:256
 msgid "For detailed updates and project information and introduction, please go to <a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener\">www.sourcegcdn.com</a>."
+msgstr ""
+
+#: source-global-cdn.php:274
+msgid "Introduction"
+msgstr ""
+
+#: source-global-cdn.php:276
+msgid "The plugin will automatically change the references to WordPress static files to Source Global CDN, which will speed up static file loading and reduce site load."
+msgstr ""
+
+#: source-global-cdn.php:278
+msgid "About the Project"
+msgstr ""
+
+#: source-global-cdn.php:280
+msgid "Source Global CDN is a public welfare project initiated by AHdark, which aims to promote the development of open source and provide free static file acceleration services for the whole world."
+msgstr ""
+
+#: source-global-cdn.php:282
+msgid "<a href='https://www.sourcegcdn.com' rel='noopener'>https://www.sourcegcdn.com</a> is the official website of the Source Global CDN project, the update information and maintenance of this project Information will be released on this site, and more functions and services under this project will also be published."
+msgstr ""
+
+#: source-global-cdn.php:284
+msgid "This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global- CDN</a>"
 msgstr ""

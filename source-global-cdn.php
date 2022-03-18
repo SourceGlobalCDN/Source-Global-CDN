@@ -281,7 +281,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
                     <br/>
                     <?php _e("<a href='https://www.sourcegcdn.com' rel='noopener'>https://www.sourcegcdn.com</a> is the official website of the Source Global CDN project, the update information and maintenance of this project Information will be released on this site, and more functions and services under this project will also be published.", "source-global-cdn"); ?>
                     <br/>
-                    <?php _e("This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global- CDN</a>", "source-global-cdn"); ?>
+                    <?php _e("This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global-CDN</a>", "source-global-cdn"); ?>
                 </p>
             </div>
             <?php

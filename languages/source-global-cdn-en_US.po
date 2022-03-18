@@ -2,18 +2,18 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Source Global CDN 2.0.0\n"
+"Project-Id-Version: Source Global CDN 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/source-global-"
 "cdn\n"
 "POT-Creation-Date: 2022-03-18T13:50:37+01:00\n"
 "PO-Revision-Date: 2022-03-18 21:00+0800\n"
 "Last-Translator: AHdark <ahdark@outlook.com>\n"
 "Language-Team: \n"
-"Language: zh_CN\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Domain: source-global-cdn\n"
 
@@ -32,8 +32,8 @@ msgid ""
 "Automatically transfer the static files in the WordPress core and use Source "
 "Global CDN for hosting, reducing the load of static files on the site."
 msgstr ""
-"自动更改WordPress核心中静态文件的加载源，使用Source Global CDN进行托管，减少"
-"站点对静态文件的负载。"
+"Automatically transfer the static files in the WordPress core and use Source "
+"Global CDN for hosting, reducing the load of static files on the site."
 
 #. Author URI of the plugin
 msgid "https://www.sourcegcdn.com"
@@ -45,11 +45,11 @@ msgstr "Source GCDN"
 
 #: source-global-cdn.php:98
 msgid "About Source Global CDN"
-msgstr "关于 Source Global CDN"
+msgstr "About Source Global CDN"
 
 #: source-global-cdn.php:99
 msgid "About"
-msgstr "关于"
+msgstr "About"
 
 #: source-global-cdn.php:110 source-global-cdn.php:119
 #: source-global-cdn.php:128
@@ -57,20 +57,20 @@ msgid ""
 "This site is accelerated by Source Global CDN, please go to https://www."
 "sourcegcdn.com for project details."
 msgstr ""
-"本网站由Source Global CDN加速，请访问 https://www.sourcegcdn.com 了解项目详"
-"情。"
+"This site is accelerated by Source Global CDN, please go to https://www."
+"sourcegcdn.com for project details."
 
 #: source-global-cdn.php:162
 msgid "Manage"
-msgstr "管理"
+msgstr "Manage"
 
 #: source-global-cdn.php:169
 msgid "Core acceleration"
-msgstr "WP核心加速"
+msgstr "Core Acceleration"
 
 #: source-global-cdn.php:177
 msgid "Gravatar acceleration"
-msgstr "Gravatar 加速"
+msgstr "Gravatar Acceleration"
 
 #: source-global-cdn.php:218
 msgid ""
@@ -80,10 +80,11 @@ msgid ""
 "public/wordpress/56.html' rel='noopener'>https://www.sourcegcdn.com/public/"
 "wordpress/56.html</a>."
 msgstr ""
-"将WordPress核心的静态文件切换到 <code>wp.sourcegcdn.com/core/</code> 进行加"
-"载，有效地加快了访问速度。 <br/> 详情请参考 <a href='https://www.sourcegcdn."
-"com/public/wordpress/56.html' rel='noopener'>https://www.sourcegcdn.com/"
-"public/wordpress/56.html</a> 。"
+"Switch the static files that the WordPress core depends on to the resources "
+"of <code>wp.sourcegcdn.com/core/</code>, which greatly speeds up the access "
+"speed. <br/>For details, please refer to <a href='https://www.sourcegcdn.com/"
+"public/wordpress/56.html' rel='noopener'>https://www.sourcegcdn.com/public/"
+"wordpress/56.html</a>."
 
 #: source-global-cdn.php:223
 msgid ""
@@ -92,13 +93,14 @@ msgid ""
 "to <a href='https://www.sourcegcdn.com/public/92.html' "
 "rel='noopener'>https://www.sourcegcdn.com/public/92.html</a>."
 msgstr ""
-"使用 <code>avatar.sourcegcdn.com</code> 加速你的Gravatar，同时确保中国大陆的"
-"正常访问。 <br/> 详情请参考 <a href='https://www.sourcegcdn.com/public/92."
-"html' rel='noopener'>https://www.sourcegcdn.com/public/92.html</a> 。"
+"Use <code>avatar.sourcegcdn.com</code> to speed up your Gravatar while "
+"ensuring normal access to the China Mainland. <br/>For details, please refer "
+"to <a href='https://www.sourcegcdn.com/public/92.html' "
+"rel='noopener'>https://www.sourcegcdn.com/public/92.html</a>."
 
 #: source-global-cdn.php:235
 msgid "Saved."
-msgstr "已保存。"
+msgstr "Saved."
 
 #: source-global-cdn.php:256
 msgid ""
@@ -106,12 +108,13 @@ msgid ""
 "<a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener"
 "\">www.sourcegcdn.com</a>."
 msgstr ""
-"详细更新内容、项目信息及介绍请前往 <a href=\"https://www.sourcegcdn.com\" "
-"target=\"_blank\" rel=\"noopener\">www.sourcegcdn.com</a> 。"
+"For detailed updates and project information and introduction, please go to "
+"<a href=\"https://www.sourcegcdn.com\" target=\"_blank\" rel=\"noopener"
+"\">www.sourcegcdn.com</a>."
 
 #: source-global-cdn.php:274
 msgid "Introduction"
-msgstr "介绍"
+msgstr "Introduction"
 
 #: source-global-cdn.php:276
 msgid ""
@@ -119,12 +122,13 @@ msgid ""
 "files to Source Global CDN, which will speed up static file loading and "
 "reduce site load."
 msgstr ""
-"该插件会自动将WordPress核心静态文件的引用转移至Source Global CDN，这将提高静"
-"态文件的加载速度并减轻站点负载。"
+"The plugin will automatically change the references to WordPress static "
+"files to Source Global CDN, which will speed up static file loading and "
+"reduce site load."
 
 #: source-global-cdn.php:278
 msgid "About the Project"
-msgstr "关于项目"
+msgstr "About the Project"
 
 #: source-global-cdn.php:280
 msgid ""
@@ -132,8 +136,9 @@ msgid ""
 "aims to promote the development of open source and provide free static file "
 "acceleration services for the whole world."
 msgstr ""
-"Source Global CDN 是 AHdark 发起的一个公益项目，旨在推动开源的发展和为全世界"
-"提供免费的静态文件加速服务。"
+"Source Global CDN is a public welfare project initiated by AHdark, which "
+"aims to promote the development of open source and provide free static file "
+"acceleration services for the whole world."
 
 #: source-global-cdn.php:282
 msgid ""
@@ -144,8 +149,10 @@ msgid ""
 "published."
 msgstr ""
 "<a href='https://www.sourcegcdn.com' rel='noopener'>https://www.sourcegcdn."
-"com</a> 是Source Global CDN项目的官方网站，本项目的更新信息和维护信息将在该站"
-"点发布，本项目包含的更多功能和服务也将发布在该站点。"
+"com</a> is the official website of the Source Global CDN project, the update "
+"information and maintenance of this project Information will be released on "
+"this site, and more functions and services under this project will also be "
+"published."
 
 #: source-global-cdn.php:284
 msgid ""
@@ -154,6 +161,7 @@ msgid ""
 "href='https://github.com/SourceGlobalCDN/Source-Global-CDN' "
 "rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global-CDN</a>"
 msgstr ""
-"该插件已发布到 WordPress.org，但其维护仍在 GitHub 存储库中进行。 如果需要，可"
-"以查看 <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' "
-"rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global-CDN</a>"
+"This plugin has been published to WordPress.org, but its maintenance is "
+"still going on in the GitHub repository. If you want, you can view <a "
+"href='https://github.com/SourceGlobalCDN/Source-Global-CDN' "
+"rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global-CDN</a>."

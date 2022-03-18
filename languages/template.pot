@@ -99,5 +99,5 @@ msgid "<a href='https://www.sourcegcdn.com' rel='noopener'>https://www.sourcegcd
 msgstr ""
 
 #: source-global-cdn.php:284
-msgid "This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global- CDN</a>"
+msgid "This plugin has been published to WordPress.org, but its maintenance is still going on in the GitHub repository. If you want, you can view <a href='https://github.com/SourceGlobalCDN/Source-Global-CDN' rel='noopener'>https://github.com/SourceGlobalCDN/Source-Global-CDN</a>"
 msgstr ""

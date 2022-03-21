@@ -4,7 +4,7 @@ Donate link: https://ahdark.com/donate
 Tags: cdn, accelerate, 加速, 静态文件
 Requires at least: 1.0
 Tested up to: 5.9.2
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -30,6 +30,9 @@ It can save your server from the burden of dozens of static files, while speedin
 You can go to <https://www.sourcegcdn.com/public/wordpress/56.html> for more details.
 
 == Changelog ==
+
+= 2.0.3 =
+* Fixed a error which will redirect user to an unknown page
 
 = 2.0.2 =
 * Added preconnect to the <head> section

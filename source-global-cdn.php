@@ -5,7 +5,7 @@
  * Description: Automatically transfer the static files in the WordPress core and use Source Global CDN for hosting, reducing the load of static files on the site.
  * Author: Source Global CDN
  * Author URI: https://www.sourcegcdn.com
- * Version: 2.0.2
+ * Version: 2.0.3
  * Network: True
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -36,7 +36,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
     class SOURCE_GLOBAL_CDN
     {
         private $page_url;
-        public $version = "2.0.2";
+        public $version = "2.0.3";
 
         public function __construct()
         {

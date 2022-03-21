@@ -40,7 +40,7 @@ if (!class_exists('SOURCE_GLOBAL_CDN')) {
 
         public function __construct()
         {
-            $this->page_url = network_admin_url(is_multisite() ? 'settings.php?page=source-global-cdn' : 'options-general.php?page=source-global-cdn');
+            $this->page_url = network_admin_url(is_multisite() ? 'admin.php?page=sourcegcdn' : 'options-general.php?page=sourcegcdn');
         }
 
         public function init()
